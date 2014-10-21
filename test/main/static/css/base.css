@@ -1,0 +1,23 @@
+.unread-notifications a {
+	background-color: #d9534f;
+	color: #fff;
+}
+
+.nav-pills.pull-right ul.dropdown-menu {
+    right: 0;
+    left: auto;
+}
+
+.notifications-box {
+	min-width: 400px;
+	padding: 5px;
+}
+
+.notifications-box .notifications-title {
+	text-align: center;
+}
+
+.notifications-box .notifications-title hr {
+	margin-top: 5px;
+	margin-bottom: 7px;
+}
