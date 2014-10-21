@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Test memnotify</title>
+	</head>
+	<body>
+		<h1>Test memnotify</h1>
+		<ul>
+			{% for notification in notifications %}
+			<li>{{ notification.content }}</li>
+			{% endfor %}
+		</ul>
+	</body>
+</html>

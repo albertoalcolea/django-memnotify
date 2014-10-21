@@ -24,7 +24,7 @@ class RedisBackend(BaseMemnotifyBackend):
         if 'redis_db' in kwargs:
             self._redis_db = kwargs.pop('redis_db')
         else:
-            self._redis_db = getattr(settings, 'MEMNOTIFY_REDIS_DB', 6379)
+            self._redis_db = getattr(settings, 'MEMNOTIFY_REDIS_DB', 0)
         if 'redis_passwd' in kwargs:
             self._redis_passwd = kwargs.pop('redis_passwd')
         else:
@@ -79,9 +79,7 @@ class RedisBackend(BaseMemnotifyBackend):
         return False
 
     def close(self):
-        if self.redis is not None:
-            # Does Redis a "close" or "disconnect" method?
-            del(self.redis)
+        pass # Persistent connection
 
     def send(self, user, content, level, sender=None, expired_at=None, one_time=False):
         key = self._get_key(user)
