@@ -3,7 +3,7 @@
 from redis import Redis
 
 import datetime
-import cPickle
+import pickle
 
 from django.conf import settings
 
@@ -39,10 +39,10 @@ class RedisBackend(BaseMemnotifyBackend):
         return user.id
 
     def _codify(self, decod_msg):
-        return cPickle.dumps(decod_msg)
+        return pickle.dumps(decod_msg)
 
     def _decodify(self, cod_msg):
-        return cPickle.loads(cod_msg)
+        return pickle.loads(cod_msg)
 
     def _generate_msg(self, content, level, sender, expired_at, one_time=False):
         msg = {
